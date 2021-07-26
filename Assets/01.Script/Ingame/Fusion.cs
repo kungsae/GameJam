@@ -8,15 +8,18 @@ public class Fusion : MonoBehaviour
     public HingeJoint2D joint;
     public string part;
     float bodyHeight;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+
+	private void Awake()
+	{
         if (part == "Body")
         {
             gameObject.name = "Body";
         }
-        else
+    }
+	void Start()
+    {
+       
+        if(part != "Body")
         {
             body = GameObject.Find("Body");
             Debug.Log(body);
