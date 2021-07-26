@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   joint: {fileID: 0}
-  part: Calf
+  part: CalfL
 --- !u!50 &3044230215284212167
 Rigidbody2D:
   serializedVersion: 4
