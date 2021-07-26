@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdle : MonoBehaviour
+public class Player : MonoBehaviour
 {
     Rigidbody2D rig;
     public Rigidbody2D[] leg;
+    public Rigidbody2D[] arm;
     public float time = 0.1f;
     public float power;
+    public float jupPower;
+    public float armPower;
     bool isGround = true;
     bool isDead = false;
     Vector3 legPos;
@@ -34,6 +37,17 @@ public class PlayerIdle : MonoBehaviour
                 leg[0].AddTorque(-power);
                 leg[1].AddTorque(power);
             }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                arm[0].AddTorque(armPower);
+                arm[1].AddTorque(armPower);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                arm[0].AddTorque(-armPower);
+                arm[1].AddTorque(-armPower);
+            }
+
             if (Input.GetKey(KeyCode.Space))
             {
                 leg[0].AddTorque(power);
@@ -43,7 +57,7 @@ public class PlayerIdle : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.Space) && isGround)
             {
-                rig.AddForce(Vector2.up * power * 375);
+                rig.AddForce(Vector2.up * jupPower);
             }
         }
     }
