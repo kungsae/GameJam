@@ -41,19 +41,19 @@ public class Player : MonoBehaviour
 
             if (Input.GetKey(KeyCode.D))
             {
-                jointMax(-30,60);
+                jointMax(0,60);
                 leg[0].AddTorque(power);
                 leg[1].AddTorque(-power);
             }
             if (Input.GetKey(KeyCode.F))
             {
-                jointMax(-30, 60);
+                jointMax(0, 60);
                 leg[0].AddTorque(-power);
                 leg[1].AddTorque(power);
             }
             if (Input.GetKey(KeyCode.A))
             {
-                jointMax(-30, -120);
+                jointMax(-120, -30);
 
 
                 leg[0].AddTorque(power);
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.S))
             {
-                jointMax(-30, -120);
+                jointMax(-120, -30);
 
                 leg[0].AddTorque(-power);
                 leg[1].AddTorque(power);
@@ -82,10 +82,6 @@ public class Player : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))
             {
-                leg[0].AddTorque(power);
-                leg[1].AddTorque(power);
-                leg[2].AddTorque(-power);
-                leg[3].AddTorque(-power);
             }
             if (Input.GetKeyUp(KeyCode.Space) && isGround)
             {
@@ -119,12 +115,8 @@ public class Player : MonoBehaviour
     }
     public void jointMax(float min,float max)
     {
-        JointAngleLimits2D limit = new JointAngleLimits2D();
         limit.max = max;
         limit.min = min;
-        JointAngleLimits2D limit2 = new JointAngleLimits2D();
-        limit2.max = max-60;
-        limit2.min = min-60;
         legJoint[2].limits = limit;
 		legJoint[3].limits = limit;
 	}

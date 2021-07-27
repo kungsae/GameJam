@@ -22,11 +22,12 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnEnemy(int enemyCount)
     {
+        yield return new WaitForSeconds(5f);
         for (int j = 0; j < enemyCount; j++)
         {
-            yield return new WaitForSeconds(0.02f);
-            enemyNum++;
-            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY),0);
+            transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
+            yield return new WaitForSeconds(0.01f);
+            enemyNum++;           
             for (int i = 0; i < parts.Length; i++)
             {
                 Rigidbody2D rig = parts[i].GetComponent<Rigidbody2D>();
@@ -35,8 +36,7 @@ public class EnemySpawner : MonoBehaviour
             }
             for (int i = 0; i < parts.Length; i++)
             {
-                Debug.Log(i);
-                yield return new WaitForSeconds(0.01f);
+                yield return new WaitForSeconds(0.5f);
                 GameObject part = Instantiate(parts[i],transform.position,transform.rotation);
                 partsList.Add(part);          
             }
