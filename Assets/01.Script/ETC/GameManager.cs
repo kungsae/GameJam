@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int[] character = new int[8];
+    public string sceneName = "03.InGame";
 
     public List<GameObject> bodyPrefabs = new List<GameObject>();
     public List<GameObject> headPrefabs = new List<GameObject>();
@@ -47,8 +48,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);    //씬전환할때 사라지지 않음
     }
 
+    public void SelectScene(string _sceneName)
+    {
+        SceneManager.LoadScene("02.Select");
+        sceneName = _sceneName;
+    }
+
     public void StartScene()
     {
-        SceneManager.LoadScene("03.InGame");
+        SceneManager.LoadScene(sceneName);
     }
 }
