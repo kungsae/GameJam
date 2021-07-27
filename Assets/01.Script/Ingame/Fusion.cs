@@ -65,14 +65,11 @@ public class Fusion : MonoBehaviour
                     Debug.LogError("어느 파츠에도 포함되지 않습니다");
                     break;
             }
-            
-            StartCoroutine(JointFollow());
         }
     }
 	IEnumerator LegFollow()
     {
         yield return new WaitForSeconds(0.01f);
-        float height = GetComponent<SpriteRenderer>().bounds.size.y;
         joint.anchor = new Vector2(0, 0.5f);
         joint.connectedAnchor = new Vector2(0, -0.5f);
 
@@ -80,12 +77,8 @@ public class Fusion : MonoBehaviour
     IEnumerator Headfollow()
     {
         yield return new WaitForSeconds(0.02f);
-        
-        float height = GetComponent<SpriteRenderer>().bounds.size.y;
         joint.anchor = new Vector2(0,-0.3f);
-        joint.connectedAnchor = new Vector2(0, 0.5f);
-        //transform.position = body.transform.position + new Vector3(0, bodyHeight * 0.5f, 0) + new Vector3(0, height*0.5f,0);
-    }
+        joint.connectedAnchor = new Vector2(0, 0.5f);    }
     IEnumerator CalfFollow(string legName)
     {
         yield return new WaitForSeconds(0.03f);
@@ -93,7 +86,6 @@ public class Fusion : MonoBehaviour
         joint.connectedBody = body.GetComponent<Rigidbody2D>();
         joint.anchor = new Vector2(0, 0.5f);
         joint.connectedAnchor = new Vector2(0, -0.5f);
-        //transform.position = body.transform.position + new Vector3(0, -(bodyHeight * 0.5f), 0) + new Vector3(0, -(height * 0.5f), 0);
 
     }
     IEnumerator ArmFollow()
@@ -102,14 +94,7 @@ public class Fusion : MonoBehaviour
 
         joint.anchor = new Vector2(-0.5f,0);
         joint.connectedAnchor = new Vector2(0, 0.4f);
-        //transform.position = body.transform.position + new Vector3(height*0.5f, (bodyHeight * 0.4f), 0);
     }
-    IEnumerator JointFollow()
-    {
-        yield return new WaitForSeconds(0.03f);
-		
-
-	}
     private void FindLeg(string legName)
     {
         body = GameObject.Find(legName);
