@@ -11,10 +11,12 @@ public class Fusion : MonoBehaviour
 
 	private void Awake()
 	{
+
         if (part == "Body")
         {
             gameObject.name = "Body";
         }
+
     }
 	void Start()
     {
@@ -24,7 +26,8 @@ public class Fusion : MonoBehaviour
             body = GameObject.Find("Body");
             Debug.Log(body);
             joint = GetComponent<HingeJoint2D>();
-            joint.autoConfigureConnectedAnchor = true;
+            joint.autoConfigureConnectedAnchor = false;
+            joint.connectedBody = body.GetComponent<Rigidbody2D>();
 
             bodyHeight = body.GetComponent<SpriteRenderer>().bounds.size.y;
             Debug.Log(bodyHeight);
@@ -50,9 +53,13 @@ public class Fusion : MonoBehaviour
                     gameObject.name = "CalfL";
                     StartCoroutine(CalfFollow("LegL"));
                     break;
-                case "Arm":
+                case "ArmR":
+                    gameObject.name = "ArmR";
+                    StartCoroutine(ArmFollow()); 
+                    break;
+                case "ArmL":
+                    gameObject.name = "ArmL";
                     StartCoroutine(ArmFollow());
-                    gameObject.name = "Arm";
                     break;
                 default:
                     Debug.LogError("어느 파츠에도 포함되지 않습니다");
@@ -66,45 +73,43 @@ public class Fusion : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         float height = GetComponent<SpriteRenderer>().bounds.size.y;
-        joint.anchor = new Vector2(0, (height));
-        transform.position = body.transform.position + new Vector3(0, -(bodyHeight * 0.5f), 0) + new Vector3(0, -(height * 0.5f), 0);
+        joint.anchor = new Vector2(0, 0.5f);
+        joint.connectedAnchor = new Vector2(0, -0.5f);
+
     }
     IEnumerator Headfollow()
     {
         yield return new WaitForSeconds(0.02f);
         
         float height = GetComponent<SpriteRenderer>().bounds.size.y;
-        joint.anchor = new Vector2(0,-(height * 0.5f));
-        transform.position = body.transform.position + new Vector3(0, bodyHeight * 0.5f, 0) + new Vector3(0, height*0.5f,0);
+        joint.anchor = new Vector2(0,-0.3f);
+        joint.connectedAnchor = new Vector2(0, 0.5f);
+        //transform.position = body.transform.position + new Vector3(0, bodyHeight * 0.5f, 0) + new Vector3(0, height*0.5f,0);
     }
     IEnumerator CalfFollow(string legName)
     {
         yield return new WaitForSeconds(0.03f);
         FindLeg(legName);
-        float height = GetComponent<SpriteRenderer>().bounds.size.y;
-        bodyHeight = body.GetComponent<SpriteRenderer>().bounds.size.y;
-        joint.anchor = new Vector2(0, height);
-        transform.position = body.transform.position + new Vector3(0, -(bodyHeight * 0.5f), 0) + new Vector3(0, -(height * 0.5f), 0);
+        joint.connectedBody = body.GetComponent<Rigidbody2D>();
+        joint.anchor = new Vector2(0, 0.5f);
+        joint.connectedAnchor = new Vector2(0, -0.5f);
+        //transform.position = body.transform.position + new Vector3(0, -(bodyHeight * 0.5f), 0) + new Vector3(0, -(height * 0.5f), 0);
 
     }
     IEnumerator ArmFollow()
     {
         yield return new WaitForSeconds(0.02f);
 
-        float height = GetComponent<SpriteRenderer>().bounds.size.x;
-        joint.anchor = new Vector2(-(height*0.5f),0);
-        transform.position = body.transform.position + new Vector3(height*0.5f, (bodyHeight * 0.4f), 0);
+        joint.anchor = new Vector2(-0.5f,0);
+        joint.connectedAnchor = new Vector2(0, 0.4f);
+        //transform.position = body.transform.position + new Vector3(height*0.5f, (bodyHeight * 0.4f), 0);
     }
     IEnumerator JointFollow()
     {
-        yield return new WaitForSeconds(0.05f);
-        joint.connectedBody = body.GetComponent<Rigidbody2D>();
-        joint.autoConfigureConnectedAnchor = false;
-        if (part == "CalfL" || part == "CalfR")
-        {
-            joint.connectedAnchor = new Vector2(0, -0.5f);
-        }
-    }
+        yield return new WaitForSeconds(0.03f);
+		
+
+	}
     private void FindLeg(string legName)
     {
         body = GameObject.Find(legName);
