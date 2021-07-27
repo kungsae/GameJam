@@ -24,6 +24,7 @@ public class SettingManager : MonoBehaviour
     public void MainScene()
     {
         GameManager.Instance.dead = false;
+        GameManager.Instance.onEnemy = false;
         SceneManager.LoadScene("01.Main");
     }
 
