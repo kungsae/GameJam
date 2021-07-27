@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public float speed;
     public GameObject body;
     public GameObject[] partTest;
     public List<GameObject> parts = new List<GameObject>();
@@ -38,16 +37,5 @@ public class test : MonoBehaviour
             parts[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
 
-    }
-	void Update()
-    {
-        if (Input.GetKey(KeyCode.L))
-        {
-            transform.position += new Vector3(speed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.K))
-        {
-            transform.position += new Vector3(-speed, 0, 0);
-        }
     }
 }
