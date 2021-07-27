@@ -10,7 +10,6 @@ public class Fusion : MonoBehaviour
 
 	private void Awake()
 	{
-
         if (part == "Body")
         {
             gameObject.name = "Body";
@@ -19,7 +18,6 @@ public class Fusion : MonoBehaviour
     }
 	void Start()
     {
-       
         if(part != "Body")
         {
             body = GameObject.Find("Body");
@@ -58,7 +56,7 @@ public class Fusion : MonoBehaviour
                     StartCoroutine(ArmFollow());
                     break;
                 default:
-                    Debug.LogError("¾î´À ÆÄÃ÷¿¡µµ Æ÷ÇÔµÇÁö ¾Ê½À´Ï´Ù");
+                    Debug.LogError("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
                     break;
             }
         }
@@ -66,15 +64,15 @@ public class Fusion : MonoBehaviour
 	IEnumerator LegFollow()
     {
         yield return new WaitForSeconds(0.01f);
-        joint.anchor = new Vector2(0, 0.5f);
+        //joint.anchor = new Vector2(0, 0.5f);
+        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.75f);
         joint.connectedAnchor = new Vector2(0, -0.5f);
-
     }
     IEnumerator Headfollow()
     {
         yield return new WaitForSeconds(0.02f);
-        joint.anchor = new Vector2(0,-0.3f);
-        joint.connectedAnchor = body.transform.position;   
+        joint.anchor = new Vector2(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector3(0, body.GetComponent<SpriteRenderer>().bounds.size.y * 0.437f, 0);   
     }
     IEnumerator CalfFollow(string legName)
     {
@@ -83,7 +81,6 @@ public class Fusion : MonoBehaviour
         joint.connectedBody = body.GetComponent<Rigidbody2D>();
         joint.anchor = new Vector2(0, 0.5f);
         joint.connectedAnchor = new Vector2(0, -0.5f);
-
     }
     IEnumerator ArmFollow()
     {
@@ -96,5 +93,4 @@ public class Fusion : MonoBehaviour
     {
         body = GameObject.Find(legName);
     }
-
 }
