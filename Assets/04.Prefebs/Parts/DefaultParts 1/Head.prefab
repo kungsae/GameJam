@@ -177,6 +177,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0.1
-  power: 30
-  jupPower: 0
-  armPower: 10
