@@ -19,7 +19,7 @@ public class SelectManager : MonoBehaviour
     public List<Image> partImages = new List<Image>();
     public List<Image> partPrefabs = new List<Image>();
 
-    int partsValue = 0;
+    int[] partsValue = new int[8];
 
     void Start()
     {
@@ -54,36 +54,31 @@ public class SelectManager : MonoBehaviour
 
     public void RMoveParts(int n)
     {
-        if (partsValue > partPrefabs.Count - 1)
+        partsValue[n]++;
+
+        if (partsValue[n] > partPrefabs.Count - 1)
         {
-            partsValue = 0;
-        }
-        else
-        {
-            partsValue++;
+            partsValue[n] = 0;
         }
 
-        GameManager.Instance.character[n] = partsValue;
-        partImages[n].
-        partImages[n].sprite = partPrefabs[partsValue].sprite;
-        charParts[n].sprite = partPrefabs[partsValue].sprite;
-        Custom(partsValue);
+        GameManager.Instance.character[n] = partsValue[n];
+        partImages[n].sprite = partPrefabs[partsValue[n]].sprite;
+        charParts[n].sprite = partPrefabs[partsValue[n]].sprite;
+        Custom(partsValue[n]);
     }
 
     public void LMoveParts(int n)
     {
-        if (partsValue < 0)
+        partsValue[n]--;
+
+        if (partsValue[n] < 0)
         {
-            partsValue = partPrefabs.Count - 1;
-        }
-        else
-        {
-            partsValue--;
+            partsValue[n] = partPrefabs.Count - 1;
         }
         
-        GameManager.Instance.character[n] = partsValue;
-        partImages[n].sprite = partPrefabs[partsValue].sprite;
-        charParts[n].sprite = partPrefabs[partsValue].sprite;
-        Custom(partsValue);
+        GameManager.Instance.character[n] = partsValue[n];
+        partImages[n].sprite = partPrefabs[partsValue[n]].sprite;
+        charParts[n].sprite = partPrefabs[partsValue[n]].sprite;
+        Custom(partsValue[n]);
     }
 }
