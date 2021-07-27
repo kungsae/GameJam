@@ -20,6 +20,8 @@ public class test : MonoBehaviour
 	}
     IEnumerator create()
     {
+        GameObject parent = new GameObject("Player");
+
         for (int i = 0; i < partTest.Length; i++)
         {
             Rigidbody2D rig = partTest[i].GetComponent<Rigidbody2D>();
@@ -29,7 +31,7 @@ public class test : MonoBehaviour
         for (int i = 0; i < partTest.Length; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            GameObject part = Instantiate(partTest[i]);
+            GameObject part = Instantiate(partTest[i], parent.transform);
             parts.Add(part);
         }
         for (int i = 0; i < parts.Count; i++)

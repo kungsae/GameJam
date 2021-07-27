@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(5f);
         for (int j = 0; j < enemyCount; j++)
         {
+            GameObject parent = new GameObject("Enemy");
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
             yield return new WaitForSeconds(0.01f);
             enemyNum++;           
@@ -37,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < parts.Length; i++)
             {
                 yield return new WaitForSeconds(0.5f);
-                GameObject part = Instantiate(parts[i],transform.position,transform.rotation);
+                GameObject part = Instantiate(parts[i],transform.position,transform.rotation, parent.transform);
                 partsList.Add(part);          
             }
             for (int i = 0; i < partsList.Count; i++)

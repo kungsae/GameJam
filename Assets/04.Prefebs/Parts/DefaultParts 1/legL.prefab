@@ -123,15 +123,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.5}
-  m_ConnectedAnchor: {x: -6.85, y: -2.553}
+  m_ConnectedAnchor: {x: -1.94, y: 0.447}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -60
-    m_UpperAngle: 40
+    m_LowerAngle: 126.44687
+    m_UpperAngle: 216.6048
 --- !u!61 &932851372368141357
 BoxCollider2D:
   m_ObjectHideFlags: 0
