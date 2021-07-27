@@ -86,9 +86,9 @@ public class Fusion : MonoBehaviour
     {
         yield return new WaitForSeconds(0.02f);
 
-        joint.anchor = new Vector2(-0.5f,0);
-        joint.connectedAnchor = new Vector2(0, 0.4f);
-    }
+        joint.anchor = new Vector2(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector2(0, body.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+	}
     private void FindLeg(string legName)
     {
         body = GameObject.Find(legName);

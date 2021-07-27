@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6346589420828561593}
   - component: {fileID: 6346589420828561598}
   - component: {fileID: 8116297189802396725}
-  - component: {fileID: 2424958676762261181}
+  - component: {fileID: 581494933558392148}
   m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!233 &6346589420828561598
 HingeJoint2D:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   body: {fileID: 0}
   joint: {fileID: 0}
   part: Head
---- !u!114 &2424958676762261181
+--- !u!114 &581494933558392148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

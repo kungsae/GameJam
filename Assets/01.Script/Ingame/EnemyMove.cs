@@ -38,6 +38,8 @@ public class EnemyMove : MonoBehaviour
             legJoint[i] = leg[i].GetComponent<HingeJoint2D>();
         }
         StartCoroutine(chageWalk());
+        legJoint[2].useLimits = false;
+        legJoint[3].useLimits = false;
     }
 
     // Update is called once per frame
@@ -102,6 +104,8 @@ public class EnemyMove : MonoBehaviour
     {
         limit.max = max;
         limit.min = min;
+        legJoint[2].useLimits = true;
+        legJoint[3].useLimits = true;
         legJoint[2].limits = limit;
         legJoint[3].limits = limit;
     }

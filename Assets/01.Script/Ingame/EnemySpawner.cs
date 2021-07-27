@@ -25,7 +25,6 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(5f);
         for (int j = 0; j < enemyCount; j++)
         {
-            GameObject parent = new GameObject("Enemy");
             transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
             yield return new WaitForSeconds(0.01f);
             enemyNum++;           
@@ -34,16 +33,18 @@ public class EnemySpawner : MonoBehaviour
                 Rigidbody2D rig = parts[i].GetComponent<Rigidbody2D>();
                 rig.gravityScale = 0;
                 rig.velocity = Vector2.zero;
+                rig.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
             for (int i = 0; i < parts.Length; i++)
             {
                 yield return new WaitForSeconds(0.5f);
-                GameObject part = Instantiate(parts[i],transform.position,transform.rotation, parent.transform);
+                GameObject part = Instantiate(parts[i],transform.position,transform.rotation);
                 partsList.Add(part);          
             }
             for (int i = 0; i < partsList.Count; i++)
             {
                 partsList[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                partsList[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             }
         }
     }

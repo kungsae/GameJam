@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
     }
     public void jointMax(float min,float max)
     {
+        
         limit.max = max;
         limit.min = min;
         legJoint[2].limits = limit;
