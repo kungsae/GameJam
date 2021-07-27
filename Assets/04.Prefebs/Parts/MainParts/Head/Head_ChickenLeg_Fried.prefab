@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22502d8eee178b4e9a4a98c11b79c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0.05
+  time: 0.18
   power: 30
   jupPower: 5625
   armPower: 10

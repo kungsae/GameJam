@@ -49,6 +49,8 @@ public class EnemyMove : MonoBehaviour
         {
             leg[0].AddTorque(power);
             leg[1].AddTorque(-power);
+            arm[0].AddTorque(armPower);
+            arm[1].AddTorque(-armPower);
             if (transform.position.x > player.transform.position.x)
             {
                 jointMax(-120, -30);
@@ -95,7 +97,7 @@ public class EnemyMove : MonoBehaviour
             {
                 break;
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             power = -power;
         }
       

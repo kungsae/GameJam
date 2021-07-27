@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 928077004}
   - component: {fileID: 928077007}
   m_Layer: 0
-  m_Name: test
+  m_Name: spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
   - {fileID: 6346589420828561730, guid: a3eda4c9c7c6d8548a62ea7815b7fade, type: 3}
   partsList: []
   enemyNum: 0
-  EnemyCount: 3
+  EnemyCount: 10
 --- !u!212 &1571527214
 SpriteRenderer:
   m_ObjectHideFlags: 0
