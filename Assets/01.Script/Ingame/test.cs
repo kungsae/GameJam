@@ -15,14 +15,14 @@ public class test : MonoBehaviour
     }
 	private void Start()
 	{
-        partTest[0] = GameManager.Instance.bodyPrefabs[GameManager.Instance.character[0]];
-        partTest[1] = GameManager.Instance.legLPrefabs[GameManager.Instance.character[4]];   
-        partTest[2] = GameManager.Instance.calfLPrefabs[GameManager.Instance.character[6]];   
-        partTest[3] = GameManager.Instance.legRPrefabs[GameManager.Instance.character[5]];
-        partTest[4] = GameManager.Instance.calfRPrefabs[GameManager.Instance.character[7]];   
-        partTest[5] = GameManager.Instance.armRPrefabs[GameManager.Instance.character[3]];   
-        partTest[6] = GameManager.Instance.armLPrefabs[GameManager.Instance.character[2]];
-        partTest[7] = GameManager.Instance.headPrefabs[GameManager.Instance.character[1]];
+        //partTest[0] = GameManager.Instance.bodyPrefabs[GameManager.Instance.character[0]];
+        //partTest[1] = GameManager.Instance.legLPrefabs[GameManager.Instance.character[4]];   
+        //partTest[2] = GameManager.Instance.calfLPrefabs[GameManager.Instance.character[6]];   
+        //partTest[3] = GameManager.Instance.legRPrefabs[GameManager.Instance.character[5]];
+        //partTest[4] = GameManager.Instance.calfRPrefabs[GameManager.Instance.character[7]];   
+        //partTest[5] = GameManager.Instance.armRPrefabs[GameManager.Instance.character[3]];   
+        //partTest[6] = GameManager.Instance.armLPrefabs[GameManager.Instance.character[2]];
+        //partTest[7] = GameManager.Instance.headPrefabs[GameManager.Instance.character[1]];
 
         StartCoroutine(create());
 	}

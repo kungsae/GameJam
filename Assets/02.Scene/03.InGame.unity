@@ -206,14 +206,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   partTest:
-  - {fileID: 1477115347735974011, guid: cf502537cb0af6840ac450858a9e5cbb, type: 3}
-  - {fileID: 4042818098260504773, guid: 504613a8dce1f394fb1b7062b6aaade2, type: 3}
-  - {fileID: 7722368354881432944, guid: 4ba286f59b3d90445a2cdb1f295a8700, type: 3}
-  - {fileID: 8999667607383298181, guid: 34612f641caf2054c8f36731b212ca1d, type: 3}
-  - {fileID: 7722368354881432944, guid: 071e1267f7c0405459383aec8a17a1bd, type: 3}
-  - {fileID: 8999667607383298181, guid: 05f67eb300dcd0b44a783dfabf704da4, type: 3}
+  - {fileID: 3055686417892866323, guid: 54a7f57a3ccddd849a6bd7e62c99e0e5, type: 3}
+  - {fileID: 3055686417892866323, guid: 37b0fea1faac2f640aa5d72b63448e88, type: 3}
+  - {fileID: 3055686417892866323, guid: 5c2144fb184b7aa48a0e3f99f72f075f, type: 3}
+  - {fileID: 3055686417892866323, guid: 1b9f7cd9b29de9b4b981e62b38473cc0, type: 3}
+  - {fileID: 3055686417892866323, guid: 0581e8696d251474083496e114f67542, type: 3}
   - {fileID: 3055686417892866323, guid: 7559036b9860fcc45887b1e1dd2c5101, type: 3}
-  - {fileID: 1172281242856417638, guid: 112fa350a87876343a82e6dd30d3cf6c, type: 3}
+  - {fileID: 3055686417892866323, guid: 9ad5c6f36d558b049b977066c800fa22, type: 3}
+  - {fileID: 3055686417892866323, guid: 7cae027ff7f0cbb4b98f159a8cd14f46, type: 3}
   parts: []
 --- !u!212 &928077005
 SpriteRenderer:
@@ -469,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1571527213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +498,7 @@ MonoBehaviour:
   partsList: []
   enemyNum: 0
   EnemyCount: 10
+  isBattle: 0
 --- !u!212 &1571527214
 SpriteRenderer:
   m_ObjectHideFlags: 0
