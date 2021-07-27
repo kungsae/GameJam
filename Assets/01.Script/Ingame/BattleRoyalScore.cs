@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
+public class BattleRoyalScore : MonoBehaviour
 {
 	public int score;
 	public Text scoreText;
 	public void scoreUpdate()
 	{
-		scoreText.text = "Kill : " + score;
+		scoreText.text = "Wave : " + score+1;
 	}
-	
 
 }

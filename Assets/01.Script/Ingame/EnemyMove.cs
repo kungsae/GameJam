@@ -133,6 +133,7 @@ public class EnemyMove : MonoBehaviour
         if (score != null)
         {
             score.score++;
+            score.scoreUpdate();
         }
     }
 

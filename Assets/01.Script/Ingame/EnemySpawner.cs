@@ -26,10 +26,12 @@ public class EnemySpawner : MonoBehaviour
     public int EnemyCount;
     public float stageDelay;
 
+    BattleRoyalScore score;
     public bool isBattleRoyal;
     // Start is called before the first frame update
     void Start()
     {
+        score = FindObjectOfType<BattleRoyalScore>();
         StartCoroutine(SpawnEnemy(EnemyCount));
     }
 
@@ -41,8 +43,11 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(stageDelay);
             if (!GameManager.Instance.onEnemy|| isBattleRoyal)
             {
+                score.score++;
+                score.scoreUpdate();
                 for (int j = 0; j < enemyCount; j++)
                 {
+                    
                     RandomParts();
                     transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
                     yield return new WaitForSeconds(0.01f);

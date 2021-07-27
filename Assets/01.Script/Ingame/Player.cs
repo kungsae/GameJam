@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
     {
         if (!isDead)
         {
-            isGround = Physics2D.Raycast(leg[3].transform.position - legPos, Vector2.down, 0.1f, 7);
-            isGround2 = Physics2D.Raycast(leg[2].transform.position - legPos, Vector2.down, 0.1f, 7);
+            isGround = Physics2D.Raycast(leg[3].transform.position - legPos, Vector2.down, 0.3f, 7);
+            isGround2 = Physics2D.Raycast(leg[2].transform.position - legPos, Vector2.down, 0.3f, 7);
 
 
             if (Input.GetKey(KeyCode.D))
@@ -85,12 +85,7 @@ public class Player : MonoBehaviour
                 arm[0].AddTorque(-armPower);
                 arm[1].AddTorque(-armPower);
             }
-
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-            }
-            if (Input.GetKeyUp(KeyCode.Space) && (isGround|| isGround2))
+            if (Input.GetKeyDown(KeyCode.Space) && (isGround|| isGround2))
             {
                 rig.AddForce(Vector2.up * jupPower);
             }
