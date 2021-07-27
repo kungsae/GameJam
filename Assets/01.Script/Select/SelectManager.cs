@@ -24,10 +24,11 @@ public class SelectManager : MonoBehaviour
 
     void Start()
     {
-        // 몸통버튼 제외 비활성화
-        for (int i = 1; i < selectBtns.Count; i++)
+        for(int i = 0; i < 8; i++)
         {
-            selectBtns[i].interactable = false;
+            charParts[i].sprite = partPrefabs[0].sprite;
+            GameManager.Instance.character[i] = (0);
+            Custom(i);
         }
     }
 
@@ -40,12 +41,6 @@ public class SelectManager : MonoBehaviour
 
     public void Custom(int n)
     {
-        // 몸통버튼 제외 모두 활성화
-        for (int i = 1; i < selectBtns.Count; i++)
-        {
-            selectBtns[i].interactable = true;
-        }
-
         float bodyHeight = body.GetComponent<SpriteRenderer>().bounds.size.y;//o
 
         if (n == 1)
