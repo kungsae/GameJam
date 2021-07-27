@@ -102,6 +102,7 @@ public class SelectManager : MonoBehaviour
         Debug.Log(a);
 
         charParts[n].sprite = partPrefabs[-a + 3].sprite;
+        GameManager.Instance.character[n] = (-a + 3);
     }
 
     public void SelectRPart(int n)
@@ -124,5 +125,6 @@ public class SelectManager : MonoBehaviour
         Debug.Log(a);
 
         charParts[n].sprite = partPrefabs[-a + 3].sprite;
+        GameManager.Instance.character[n] = (-a + 3);
     }
 }
