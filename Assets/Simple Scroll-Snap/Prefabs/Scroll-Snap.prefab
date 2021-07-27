@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 222581062232690756}
   - component: {fileID: 114053046874971540}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: BodyViewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Content: {fileID: 224913017787380488}
   m_Horizontal: 1
   m_Vertical: 0
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.01
   m_ScrollSensitivity: 0
   m_Viewport: {fileID: 224376673849031854}
@@ -175,11 +175,11 @@ MonoBehaviour:
   automaticallyLayout: 1
   sizeControl: 1
   size: {x: 400, y: 250}
-  automaticLayoutSpacing: 0.25
-  leftMargin: 0
-  rightMargin: 0
-  topMargin: 0
-  bottomMargin: 0
+  automaticLayoutSpacing: 0
+  leftMargin: 10
+  rightMargin: 10
+  topMargin: 10
+  bottomMargin: 10
   infinitelyScroll: 0
   infiniteScrollingEndSpacing: 0
   useOcclusionCulling: 0
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224913017787380488}
   m_Layer: 5
-  m_Name: Content
+  m_Name: BodyContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,5 +241,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 250}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0.5}

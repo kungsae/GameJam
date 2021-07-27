@@ -20,7 +20,7 @@ public class SelectManager : MonoBehaviour
     public List<Button> selectBtns = new List<Button>();
 
     [Header("캐릭터 부위 프리팹")]
-    public Sprite[] partPrefabs = new Sprite[] { };
+    public List<Image> partPrefabs = new List<Image>();
 
     void Start()
     {
@@ -30,6 +30,13 @@ public class SelectManager : MonoBehaviour
             selectBtns[i].interactable = false;
         }
     }
+
+    public float IntRound(float Value, int Digit)
+    {
+        float Temp = Mathf.Pow(10.0f, Digit);
+        return Mathf.Round(Value * Temp) / Temp;
+    }
+
 
     public void Custom(int n)
     {
@@ -80,33 +87,42 @@ public class SelectManager : MonoBehaviour
 
     public void SelectLPart(int n)
     {
-        Debug.Log((int)selectParts[n].position.x + 300);
+        // if (((int)selectParts[n].position.x + 301) % 10 == 0)
+        // {
+        //     a = ((int)selectParts[n].position.x + 301) / 240;
+        //     Debug.Log(a);
+        // }
+        // else
+        // {
+        //     a = ((int)selectParts[n].position.x + 302) / 240;
+        //     Debug.Log(a);
+        // }
+        Debug.Log(((int)selectParts[n].position.x + 301));  
+        a = (int)IntRound((int)selectParts[n].position.x + 301, -1) / 240;
+        Debug.Log(a);
 
-        if (((int)selectParts[n].position.x + 300) % 10 == 0)
-        {
-            a = ((int)selectParts[n].position.x + 300) / 240;
-        }
-        else
-        {
-            a = ((int)selectParts[n].position.x + 301) / 240;
-        }
-
-        charParts[n].sprite = partPrefabs[a];
+        charParts[n].sprite = partPrefabs[-a + 3].sprite;
     }
 
     public void SelectRPart(int n)
     {
-        Debug.Log((int)selectParts[n].position.x + 300);
+        // if (((int)selectParts[n].position.x + 364) % 10 == 0)
+        // {
+        //     Debug.Log(((int)selectParts[n].position.x + 364));
+        //     a = (((int)selectParts[n].position.x + 364) / 2) / 240;
+        //     Debug.Log(a);
+        // }
+        // else
+        // {
+        //     Debug.Log(((int)selectParts[n].position.x + 365));
+        //     a = (((int)selectParts[n].position.x + 365) / 2) / 240;
+        //     Debug.Log(a);
+        // }
 
-        if (((int)selectParts[n].position.x + 364) % 10 == 0)
-        {
-            a = (((int)selectParts[n].position.x + 364) / 2) / 240;
-        }
-        else
-        {
-            a = (((int)selectParts[n].position.x + 365) / 2) / 240;
-        }
+        Debug.Log(IntRound(((int)selectParts[n].position.x), -1));
+        a = (int)IntRound(((int)selectParts[n].position.x - 360), -1) / 240;
+        Debug.Log(a);
 
-        charParts[n].sprite = partPrefabs[a];
+        charParts[n].sprite = partPrefabs[-a + 3].sprite;
     }
 }
