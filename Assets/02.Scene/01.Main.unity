@@ -1114,9 +1114,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 1903047356}
   stageBtns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 735354786}
+  - {fileID: 2059402387}
+  - {fileID: 1859764316}
 --- !u!1 &1859764316
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(stageDelay);
-            if (!GameManager.Instance.onEnemy|| isBattleRoyal)
+            if ((!GameManager.Instance.onEnemy|| isBattleRoyal) && !GameManager.Instance.dead)
             {
                 if (isBattleRoyal)
                 {

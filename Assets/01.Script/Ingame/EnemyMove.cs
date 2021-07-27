@@ -68,6 +68,11 @@ public class EnemyMove : MonoBehaviour
                 Dead();
             }
         }
+
+        if(GameManager.Instance.dead)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
     IEnumerator stand()
     {

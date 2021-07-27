@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingManager : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class SettingManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void MainScene()
+    {
+        GameManager.Instance.dead = false;
+        SceneManager.LoadScene("01.Main");
     }
 
     public void Setting()

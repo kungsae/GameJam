@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D[] leg = new Rigidbody2D[4];
     private HingeJoint2D[] legJoint = new HingeJoint2D[4];
     private Rigidbody2D[] arm = new Rigidbody2D[2];
+    private GameOver gameOver;
     public float time = 0.1f;
     public float power;
     public float jupPower;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
     JointAngleLimits2D limit;
 	private void Awake()
 	{
-      
+        gameOver = FindObjectOfType<GameOver>();
 	}
 	void Start()
     {
@@ -140,6 +141,7 @@ public class Player : MonoBehaviour
         isDead = true;
         GameManager.Instance.dead = true;
         Debug.Log("Dead");
+        gameOver.GameIsOver();
     }
 
 }
