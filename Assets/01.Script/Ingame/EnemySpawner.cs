@@ -24,7 +24,9 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> partsList = new List<GameObject>();
     public int enemyNum;
     public int EnemyCount;
-    public bool isBattle = false;
+    public float stageDelay;
+
+    public bool isBattleRoyal;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,76 +38,76 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
-            for (int j = 0; j < enemyCount; j++)
+            yield return new WaitForSeconds(stageDelay);
+            if (!GameManager.Instance.onEnemy|| isBattleRoyal)
             {
-                RandomParts();
-                transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
-                yield return new WaitForSeconds(0.01f);
-                enemyNum++;
-                for (int i = 0; i < parts.Length; i++)
+                for (int j = 0; j < enemyCount; j++)
                 {
-                    Rigidbody2D rig = parts[i].GetComponent<Rigidbody2D>();
-                    rig.gravityScale = 0;
-                    rig.velocity = Vector2.zero;
-                    rig.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    RandomParts();
+                    transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
+                    yield return new WaitForSeconds(0.01f);
+                    enemyNum++;
+                    for (int i = 0; i < parts.Length; i++)
+                    {
+                        Rigidbody2D rig = parts[i].GetComponent<Rigidbody2D>();
+                        rig.gravityScale = 0;
+                        rig.velocity = Vector2.zero;
+                        rig.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    }
+                    for (int i = 0; i < parts.Length; i++)
+                    {
+                        yield return new WaitForSeconds(0.5f);
+                        GameObject part = Instantiate(parts[i], transform.position, transform.rotation);
+                        part.layer = 8;
+                        EnemyFusion fusion = part.AddComponent<EnemyFusion>();
+                        switch (i)
+                        {
+                            case 0:
+                                fusion.part = "Body";
+                                part.name = "Body" + enemyNum;
+                                break;
+                            case 1:
+                                fusion.part = "LegL";
+                                part.name = "LegL" + enemyNum;
+                                break;
+                            case 2:
+                                fusion.part = "LegR";
+                                part.name = "LegR" + enemyNum;
+                                break;
+                            case 3:
+                                fusion.part = "CalfL";
+                                part.name = "CalfL" + enemyNum;
+                                break;
+                            case 4:
+                                fusion.part = "CalfR";
+                                part.name = "CalfR" + enemyNum;
+                                break;
+                            case 5:
+                                fusion.part = "ArmR";
+                                part.name = "ArmR" + enemyNum;
+                                break;
+                            case 6:
+                                fusion.part = "ArmL";
+                                part.name = "ArmL" + enemyNum;
+                                break;
+                            case 7:
+                                Destroy(part.GetComponent<Player>());
+                                part.AddComponent<EnemyMove>();
+                                fusion.part = "Head";
+                                part.name = "Head" + enemyNum;
+                                break;
+                            default:
+                                break;
+                        }
+                        partsList.Add(part);
+                    }
+                    for (int i = 0; i < partsList.Count; i++)
+                    {
+                        partsList[i].GetComponent<Rigidbody2D>().gravityScale = 1;
+                        partsList[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                    }
+                    GameManager.Instance.onEnemy = true;
                 }
-                for (int i = 0; i < parts.Length; i++)
-                {
-                    yield return new WaitForSeconds(0.5f);
-                    GameObject part = Instantiate(parts[i], transform.position, transform.rotation);
-                    part.layer = 8;
-                    EnemyFusion fusion = part.AddComponent<EnemyFusion>();
-					switch (i)
-					{
-                        case 0:
-                            fusion.part = "Body";
-                            part.name = "Body" + enemyNum;
-                            break;
-                        case 1:
-                            fusion.part = "LegL";
-							part.name = "LegL" + enemyNum;
-							break;
-						case 2:
-							fusion.part = "LegR";
-							part.name = "LegR" + enemyNum;
-							break;
-						case 3:
-							fusion.part = "CalfL";
-							part.name = "CalfL" + enemyNum;
-							break;
-						case 4:
-							fusion.part = "CalfR";
-							part.name = "CalfR" + enemyNum;
-							break;
-						case 5:
-							fusion.part = "ArmR";
-							part.name = "ArmR" + enemyNum;
-							break;
-						case 6:
-							fusion.part = "ArmL";
-							part.name = "ArmL" + enemyNum;
-							break;
-						case 7:
-                            Destroy(part.GetComponent<Player>());
-                            part.AddComponent<EnemyMove>();
-							fusion.part = "Head";
-							part.name = "Head" + enemyNum;
-							break;
-                        default:
-							break;
-					}
-					partsList.Add(part);
-                }
-                for (int i = 0; i < partsList.Count; i++)
-                {
-                    partsList[i].GetComponent<Rigidbody2D>().gravityScale = 1;
-                    partsList[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                }
-            }
-            if (!isBattle)
-            {
-                break;
             }
         }
     }

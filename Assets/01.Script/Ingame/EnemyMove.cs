@@ -18,8 +18,10 @@ public class EnemyMove : MonoBehaviour
     EnemySpawner spawner;
     private int num;
     GameObject player;
+    Score score;
     void Start()
     {
+        score = FindObjectOfType<Score>();
         if (gameObject.GetComponent<Player>() != null)
         {
             Debug.Log(gameObject.GetComponent<Player>());
@@ -60,6 +62,10 @@ public class EnemyMove : MonoBehaviour
             else
             {
                 jointMax(0, 60);
+            }
+            if (transform.position.y < -10)
+            {
+                Dead();
             }
         }
     }
@@ -114,10 +120,19 @@ public class EnemyMove : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground")&&!isDead)
         {
-            isDead = true;
-            Debug.Log("Dead");
+            Dead();
+        }
+    }
+    public void Dead()
+    {
+        isDead = true;
+        GameManager.Instance.onEnemy = false;
+        Debug.Log("Dead");
+        if (score != null)
+        {
+            score.score++;
         }
     }
 

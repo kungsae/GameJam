@@ -94,6 +94,11 @@ public class Player : MonoBehaviour
             {
                 rig.AddForce(Vector2.up * jupPower);
             }
+
+            if (transform.position.y < -10)
+            {
+                Dead();
+            }
         }
     }
     IEnumerator stand()
@@ -132,9 +137,13 @@ public class Player : MonoBehaviour
 	{
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isDead = true;
-            Debug.Log("Dead");
+            Dead();
         }
 	}
+    public void Dead()
+    {
+        isDead = true;
+        Debug.Log("Dead");
+    }
 
 }

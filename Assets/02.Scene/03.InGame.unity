@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  player: {fileID: 0}
   partTest:
   - {fileID: 3055686417892866323, guid: 54a7f57a3ccddd849a6bd7e62c99e0e5, type: 3}
   - {fileID: 3055686417892866323, guid: 37b0fea1faac2f640aa5d72b63448e88, type: 3}
@@ -661,7 +660,6 @@ MonoBehaviour:
   - {fileID: 8743417177934813424, guid: 7850d6db18051d04081e709940aa6efd, type: 3}
   - {fileID: 8275463512104329483, guid: fff696152ae3cfb4ca0f0ffc1eb6143e, type: 3}
   - {fileID: 4804300092346625161, guid: c7eb9f0133943bf429ae0b0a783cea83, type: 3}
-  - {fileID: 7722368354881432944, guid: c3faddfda8ffb434ca7004441a5898f9, type: 3}
   - {fileID: 7785076231868543958, guid: 1b6cc400f9b9b1044bec09407f5c6e4e, type: 3}
   - {fileID: 3543166768700530301, guid: 7b870d0ce3e515a4a9beccc0cb7243bd, type: 3}
   - {fileID: 1394823170459583147, guid: faaad38729acb4048a1a4280ebf013c2, type: 3}
@@ -710,7 +708,6 @@ MonoBehaviour:
   - {fileID: 8743417177934813424, guid: a9c0db060777a94499d65f45f8d7a3bf, type: 3}
   - {fileID: 8275463512104329483, guid: 0ba1c74b4e7c27d45bbba1cd9378c310, type: 3}
   - {fileID: 4804300092346625161, guid: 55713d80e0ca3ba4bbb1598ccec9d75b, type: 3}
-  - {fileID: 7722368354881432944, guid: 3ad381091bc316544a682fff19a3450d, type: 3}
   - {fileID: 7785076231868543958, guid: ecfc2d7629d6c274cb9166b61438da29, type: 3}
   - {fileID: 3543166768700530301, guid: dec4aa70fda4e56478ab3a04bb4a7f92, type: 3}
   - {fileID: 1394823170459583147, guid: ffa0b2ead18abd542bdc150c753dbca3, type: 3}
@@ -884,8 +881,9 @@ MonoBehaviour:
   - {fileID: 6346589420828561730, guid: a3eda4c9c7c6d8548a62ea7815b7fade, type: 3}
   partsList: []
   enemyNum: 0
-  EnemyCount: 10
-  isBattle: 0
+  EnemyCount: 1
+  stageDelay: 0.1
+  isBattleRoyal: 0
 --- !u!212 &1571527214
 SpriteRenderer:
   m_ObjectHideFlags: 0

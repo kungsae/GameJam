@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public int[] character = new int[8];
     public string sceneName = "03.InGame";
 
+    public bool onEnemy = false;
+
+
     public List<GameObject> bodyPrefabs = new List<GameObject>();
     public List<GameObject> headPrefabs = new List<GameObject>();
     public List<GameObject> armLPrefabs = new List<GameObject>();
