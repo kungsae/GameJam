@@ -82,43 +82,22 @@ public class SelectManager : MonoBehaviour
 
     public void SelectLPart(int n)
     {
-        // if (((int)selectParts[n].position.x + 301) % 10 == 0)
-        // {
-        //     a = ((int)selectParts[n].position.x + 301) / 240;
-        //     Debug.Log(a);
-        // }
-        // else
-        // {
-        //     a = ((int)selectParts[n].position.x + 302) / 240;
-        //     Debug.Log(a);
-        // }
         Debug.Log(((int)selectParts[n].position.x + 301));  
         a = (int)IntRound((int)selectParts[n].position.x + 301, -1) / 240;
         Debug.Log(a);
 
+        Debug.Log((-a + 3) + "a");
         charParts[n].sprite = partPrefabs[-a + 3].sprite;
         GameManager.Instance.character[n] = (-a + 3);
     }
 
     public void SelectRPart(int n)
     {
-        // if (((int)selectParts[n].position.x + 364) % 10 == 0)
-        // {
-        //     Debug.Log(((int)selectParts[n].position.x + 364));
-        //     a = (((int)selectParts[n].position.x + 364) / 2) / 240;
-        //     Debug.Log(a);
-        // }
-        // else
-        // {
-        //     Debug.Log(((int)selectParts[n].position.x + 365));
-        //     a = (((int)selectParts[n].position.x + 365) / 2) / 240;
-        //     Debug.Log(a);
-        // }
-
         Debug.Log(IntRound(((int)selectParts[n].position.x), -1));
         a = (int)IntRound(((int)selectParts[n].position.x - 360), -1) / 240;
         Debug.Log(a);
 
+        Debug.Log((-a + 3) + "a");
         charParts[n].sprite = partPrefabs[-a + 3].sprite;
         GameManager.Instance.character[n] = (-a + 3);
     }
