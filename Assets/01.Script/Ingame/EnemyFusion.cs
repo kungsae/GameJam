@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fusion : MonoBehaviour
+public class EnemyFusion : MonoBehaviour
 {
     public GameObject body;
     public HingeJoint2D joint;
     public string part;
+    private EnemySpawner spawner;
 
-	private void Awake()
-	{
-
+    private void Awake()
+    {
+        spawner = FindObjectOfType<EnemySpawner>();
         if (part == "Body")
         {
-            gameObject.name = "Body";
+            gameObject.name = "Body" + spawner.enemyNum;
         }
 
     }
-	void Start()
+    void Start()
     {
-       
-        if(part != "Body")
+
+        if (part != "Body")
         {
-            body = GameObject.Find("Body");
+            body = GameObject.Find("Body" + spawner.enemyNum);
             Debug.Log(body);
             joint = GetComponent<HingeJoint2D>();
             joint.autoConfigureConnectedAnchor = false;
@@ -30,31 +31,31 @@ public class Fusion : MonoBehaviour
             switch (part)
             {
                 case "Head":
-                    gameObject.name = "Head";
+                    gameObject.name = "Head"+ spawner.enemyNum;
                     StartCoroutine(Headfollow());
                     break;
                 case "LegR":
-                    gameObject.name = "LegR";
+                    gameObject.name = "LegR" + spawner.enemyNum;
                     StartCoroutine(LegFollow());
                     break;
                 case "LegL":
-                    gameObject.name = "LegL";
+                    gameObject.name = "LegL" + spawner.enemyNum;
                     StartCoroutine(LegFollow());
                     break;
                 case "CalfR":
-                    gameObject.name = "CalfR";
-                    StartCoroutine(CalfFollow("LegR"));
+                    gameObject.name = "CalfR" + spawner.enemyNum;
+                    StartCoroutine(CalfFollow("LegR" + spawner.enemyNum));
                     break;
                 case "CalfL":
-                    gameObject.name = "CalfL";
-                    StartCoroutine(CalfFollow("LegL"));
+                    gameObject.name = "CalfL" + spawner.enemyNum;
+                    StartCoroutine(CalfFollow("LegL" + spawner.enemyNum));
                     break;
                 case "ArmR":
-                    gameObject.name = "ArmR";
-                    StartCoroutine(ArmFollow()); 
+                    gameObject.name = "ArmR" + spawner.enemyNum;
+                    StartCoroutine(ArmFollow());
                     break;
                 case "ArmL":
-                    gameObject.name = "ArmL";
+                    gameObject.name = "ArmL" + spawner.enemyNum;
                     StartCoroutine(ArmFollow());
                     break;
                 default:
@@ -63,7 +64,7 @@ public class Fusion : MonoBehaviour
             }
         }
     }
-	IEnumerator LegFollow()
+    IEnumerator LegFollow()
     {
         yield return new WaitForSeconds(0.01f);
         joint.anchor = new Vector2(0, 0.5f);
@@ -73,8 +74,8 @@ public class Fusion : MonoBehaviour
     IEnumerator Headfollow()
     {
         yield return new WaitForSeconds(0.02f);
-        joint.anchor = new Vector2(0,-0.3f);
-        joint.connectedAnchor = new Vector2(0, 0.5f);   
+        joint.anchor = new Vector2(0, -0.3f);
+        joint.connectedAnchor = new Vector2(0, 0.5f);
     }
     IEnumerator CalfFollow(string legName)
     {
@@ -89,7 +90,7 @@ public class Fusion : MonoBehaviour
     {
         yield return new WaitForSeconds(0.02f);
 
-        joint.anchor = new Vector2(-0.5f,0);
+        joint.anchor = new Vector2(-0.5f, 0);
         joint.connectedAnchor = new Vector2(0, 0.4f);
     }
     private void FindLeg(string legName)
