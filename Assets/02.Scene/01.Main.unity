@@ -205,8 +205,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1805897255}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1561773289}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
@@ -499,7 +499,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1805897254
+--- !u!1 &1479448917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,8 +507,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1805897256}
-  - component: {fileID: 1805897255}
+  - component: {fileID: 1479448919}
+  - component: {fileID: 1479448918}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -516,13 +516,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1805897255
+--- !u!114 &1479448918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805897254}
+  m_GameObject: {fileID: 1479448917}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8593662461905d8488010db79917ff85, type: 3}
@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: 0000000000000000000000000000000000000000000000000000000000000000
   sceneName: 03.InGame
+  onEnemy: 0
   bodyPrefabs:
   - {fileID: 3055686417892866323, guid: 54a7f57a3ccddd849a6bd7e62c99e0e5, type: 3}
   - {fileID: 5776480524840952798, guid: 896572fb3affb694a938116d80981654, type: 3}
@@ -906,15 +907,58 @@ MonoBehaviour:
   - {fileID: 1381217066690456085, guid: 3b9f1dd58049d97449ff61133c13f0cb, type: 3}
   - {fileID: 3420832650443866955, guid: 9141755e68e6ac2409aa7ac884dc3056, type: 3}
   - {fileID: 1477115347735974011, guid: 8ad07904a5ea93d438e3f1c9997c6024, type: 3}
---- !u!4 &1805897256
+--- !u!4 &1479448919
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805897254}
+  m_GameObject: {fileID: 1479448917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561773288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561773290}
+  - component: {fileID: 1561773289}
+  m_Layer: 0
+  m_Name: LoadScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1561773289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561773288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6825673cf1bf5046ba0954dcaab0fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1561773290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561773288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1001,7 +1045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859764319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1561773289}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: SelectScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: JumpMap
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859764319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,8 +1261,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1805897255}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1561773289}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: SelectScene
         m_Mode: 5
         m_Arguments:
