@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 181379201236960238}
   - component: {fileID: 8018008709713496431}
   m_Layer: 6
-  m_Name: ArmR_Bamboo
+  m_Name: CalfR_Bamboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 3055686417892866323}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -172,4 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   joint: {fileID: 0}
-  part: ArmR
+  part: CalfR
