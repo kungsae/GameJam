@@ -5,7 +5,6 @@ using UnityEngine;
 public class test : MonoBehaviour
 {
     public GameObject body;
-    public GameObject player;
     public GameObject[] partTest;
     public List<GameObject> parts = new List<GameObject>();
 
@@ -42,10 +41,6 @@ public class test : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             GameObject part = Instantiate(partTest[i]);
             parts.Add(part);
-            if (i == partTest.Length - 1)
-            {
-                part = player;
-            }
             
         }
         for (int i = 0; i < parts.Count; i++)
