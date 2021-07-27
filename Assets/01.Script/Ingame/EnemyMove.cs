@@ -10,20 +10,22 @@ public class EnemyMove : MonoBehaviour
     private HingeJoint2D[] legJoint = new HingeJoint2D[4];
     private Rigidbody2D[] arm = new Rigidbody2D[2];
     public float time = 0.1f;
-    public float power;
-    public float jupPower;
-    public float armPower;
-    bool isGround = true;
+    private float power = 20;
+    private float armPower = 8;
     bool isDead = false;
     Vector3 legPos;
     JointAngleLimits2D limit;
     EnemySpawner spawner;
     private int num;
-    Player player;
+    GameObject player;
     void Start()
-    { 
-        
-        player = FindObjectOfType<Player>();
+    {
+        if (gameObject.GetComponent<Player>() != null)
+        {
+            Debug.Log(gameObject.GetComponent<Player>());
+            Destroy(gameObject.GetComponent<Player>());
+        }
+        player = GameObject.Find("Head");
         spawner = FindObjectOfType<EnemySpawner>();
         num = spawner.enemyNum;
         FindParts();
@@ -54,7 +56,6 @@ public class EnemyMove : MonoBehaviour
             if (transform.position.x > player.transform.position.x)
             {
                 jointMax(-120, -30);
-
             }
             else
             {
@@ -80,8 +81,8 @@ public class EnemyMove : MonoBehaviour
     }
     private void FindParts()
     {
-        Debug.Log(spawner.enemyNum);
-        Debug.Log(num);
+        //Debug.Log(spawner.enemyNum);
+        //Debug.Log(num);
         leg[0] = GameObject.Find("LegR"+ num).gameObject.GetComponent<Rigidbody2D>();
         leg[1] = GameObject.Find("LegL" +num).gameObject.GetComponent<Rigidbody2D>();
         leg[2] = GameObject.Find("CalfR"+ num).gameObject.GetComponent<Rigidbody2D>();

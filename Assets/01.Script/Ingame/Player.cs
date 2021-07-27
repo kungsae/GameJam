@@ -18,7 +18,11 @@ public class Player : MonoBehaviour
     bool isDead = false;
     Vector3 legPos;
     JointAngleLimits2D limit;
-    void Start()
+	private void Awake()
+	{
+      
+	}
+	void Start()
     {
         FindParts();
         body = GameObject.Find("Body").GetComponent<Rigidbody2D>();

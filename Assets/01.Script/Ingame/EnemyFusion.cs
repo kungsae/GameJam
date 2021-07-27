@@ -20,11 +20,10 @@ public class EnemyFusion : MonoBehaviour
     }
     void Start()
     {
-
         if (part != "Body")
         {
             body = GameObject.Find("Body" + spawner.enemyNum);
-            Debug.Log(body);
+            //Debug.Log(body);
             joint = GetComponent<HingeJoint2D>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedBody = body.GetComponent<Rigidbody2D>();
@@ -32,30 +31,37 @@ public class EnemyFusion : MonoBehaviour
             {
                 case "Head":
                     gameObject.name = "Head"+ spawner.enemyNum;
+                    
                     StartCoroutine(Headfollow());
                     break;
                 case "LegR":
                     gameObject.name = "LegR" + spawner.enemyNum;
+                    
                     StartCoroutine(LegFollow());
                     break;
                 case "LegL":
                     gameObject.name = "LegL" + spawner.enemyNum;
+                    
                     StartCoroutine(LegFollow());
                     break;
                 case "CalfR":
                     gameObject.name = "CalfR" + spawner.enemyNum;
+                    
                     StartCoroutine(CalfFollow("LegR" + spawner.enemyNum));
                     break;
                 case "CalfL":
                     gameObject.name = "CalfL" + spawner.enemyNum;
+                    
                     StartCoroutine(CalfFollow("LegL" + spawner.enemyNum));
                     break;
                 case "ArmR":
                     gameObject.name = "ArmR" + spawner.enemyNum;
+                    
                     StartCoroutine(ArmFollow());
                     break;
                 case "ArmL":
                     gameObject.name = "ArmL" + spawner.enemyNum;
+                    
                     StartCoroutine(ArmFollow());
                     break;
                 default:
@@ -67,31 +73,30 @@ public class EnemyFusion : MonoBehaviour
     IEnumerator LegFollow()
     {
         yield return new WaitForSeconds(0.01f);
-        joint.anchor = new Vector2(0, 0.5f);
-        joint.connectedAnchor = new Vector2(0, -0.5f);
-
+        //joint.anchor = new Vector2(0, 0.5f);
+        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector2(0, -body.gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
     }
     IEnumerator Headfollow()
     {
         yield return new WaitForSeconds(0.02f);
-        joint.anchor = new Vector2(0, -0.3f);
-        joint.connectedAnchor = new Vector2(0, 0.5f);
+        joint.anchor = new Vector2(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector3(0, body.GetComponent<SpriteRenderer>().bounds.size.y * 0.437f, 0);
     }
     IEnumerator CalfFollow(string legName)
     {
         yield return new WaitForSeconds(0.03f);
         FindLeg(legName);
         joint.connectedBody = body.GetComponent<Rigidbody2D>();
-        joint.anchor = new Vector2(0, 0.5f);
-        joint.connectedAnchor = new Vector2(0, -0.5f);
-
+        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector2(0, -body.gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
     }
     IEnumerator ArmFollow()
     {
         yield return new WaitForSeconds(0.02f);
 
-        joint.anchor = new Vector2(-0.5f, 0);
-        joint.connectedAnchor = new Vector2(0, 0.4f);
+        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector2(0, body.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
     }
     private void FindLeg(string legName)
     {

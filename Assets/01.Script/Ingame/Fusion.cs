@@ -14,14 +14,19 @@ public class Fusion : MonoBehaviour
         {
             gameObject.name = "Body";
         }
+       
 
     }
 	void Start()
     {
-        if(part != "Body")
+        if (gameObject.layer == 8)
+        {
+            Destroy(this);
+        }
+        if (part != "Body")
         {
             body = GameObject.Find("Body");
-            Debug.Log(body);
+            //Debug.Log(body);
             joint = GetComponent<HingeJoint2D>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedBody = body.GetComponent<Rigidbody2D>();

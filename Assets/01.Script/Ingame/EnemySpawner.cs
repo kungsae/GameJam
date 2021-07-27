@@ -9,6 +9,17 @@ public class EnemySpawner : MonoBehaviour
 
     public float minY;
     public float maxY;
+
+
+    public GameObject[] partsBody;
+    public GameObject[] partsLegL;
+    public GameObject[] partsLegR;
+    public GameObject[] partsCalfL;
+    public GameObject[] partsCalfR;
+    public GameObject[] partsArmR;
+    public GameObject[] partsArmL;
+    public GameObject[] partsHead;
+
     public GameObject[] parts;
     public List<GameObject> partsList = new List<GameObject>();
     public int enemyNum;
@@ -28,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(5f);
             for (int j = 0; j < enemyCount; j++)
             {
+                RandomParts();
                 transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
                 yield return new WaitForSeconds(0.01f);
                 enemyNum++;
@@ -42,7 +54,48 @@ public class EnemySpawner : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.5f);
                     GameObject part = Instantiate(parts[i], transform.position, transform.rotation);
-                    partsList.Add(part);
+                    part.layer = 8;
+                    EnemyFusion fusion = part.AddComponent<EnemyFusion>();
+					switch (i)
+					{
+                        case 0:
+                            fusion.part = "Body";
+                            part.name = "Body" + enemyNum;
+                            break;
+                        case 1:
+                            fusion.part = "LegL";
+							part.name = "LegL" + enemyNum;
+							break;
+						case 2:
+							fusion.part = "LegR";
+							part.name = "LegR" + enemyNum;
+							break;
+						case 3:
+							fusion.part = "CalfL";
+							part.name = "CalfL" + enemyNum;
+							break;
+						case 4:
+							fusion.part = "CalfR";
+							part.name = "CalfR" + enemyNum;
+							break;
+						case 5:
+							fusion.part = "ArmR";
+							part.name = "ArmR" + enemyNum;
+							break;
+						case 6:
+							fusion.part = "ArmL";
+							part.name = "ArmL" + enemyNum;
+							break;
+						case 7:
+                            Destroy(part.GetComponent<Player>());
+                            part.AddComponent<EnemyMove>();
+							fusion.part = "Head";
+							part.name = "Head" + enemyNum;
+							break;
+                        default:
+							break;
+					}
+					partsList.Add(part);
                 }
                 for (int i = 0; i < partsList.Count; i++)
                 {
@@ -55,5 +108,16 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
         }
+    }
+    private void RandomParts()
+    {
+        parts[0] = partsBody[Random.Range(0, partsBody.Length)];
+        parts[1] = partsLegL[Random.Range(0, partsLegL.Length)];
+        parts[2] = partsLegR[Random.Range(0, partsLegR.Length)];
+        parts[3] = partsCalfL[Random.Range(0, partsCalfL.Length)];
+        parts[4] = partsCalfR[Random.Range(0, partsCalfR.Length)];
+        parts[5] = partsArmR[Random.Range(0, partsArmR.Length)];
+        parts[6] = partsArmL[Random.Range(0, partsArmL.Length)];
+        parts[7] = partsHead[Random.Range(0, partsHead.Length)];
     }
 }
