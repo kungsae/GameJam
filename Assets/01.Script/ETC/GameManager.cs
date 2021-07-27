@@ -22,6 +22,15 @@ public class GameManager : MonoBehaviour
 
     public int[] character = new int[8];
 
+    public List<GameObject> bodyPrefabs = new List<GameObject>();
+    public List<GameObject> headPrefabs = new List<GameObject>();
+    public List<GameObject> armLPrefabs = new List<GameObject>();
+    public List<GameObject> armRPrefabs = new List<GameObject>();
+    public List<GameObject> legLPrefabs = new List<GameObject>();
+    public List<GameObject> legRPrefabs = new List<GameObject>();
+    public List<GameObject> calfLPrefabs = new List<GameObject>();
+    public List<GameObject> calfRPrefabs = new List<GameObject>();
+
     void Awake()
     {
         if (instance != null)
@@ -36,5 +45,10 @@ public class GameManager : MonoBehaviour
         //Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         DontDestroyOnLoad(this);    //씬전환할때 사라지지 않음
+    }
+
+    public void StartScene()
+    {
+        SceneManager.LoadScene("03.InGame");
     }
 }
