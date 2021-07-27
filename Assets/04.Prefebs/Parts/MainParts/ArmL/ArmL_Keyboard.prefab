@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 471733900468061212}
   - component: {fileID: 6500544397172989658}
   - component: {fileID: 4724023751332511451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_Keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

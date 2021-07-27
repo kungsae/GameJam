@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3809482459688014907}
   - component: {fileID: 181379201236960238}
   - component: {fileID: 8018008709713496431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_Bamboo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

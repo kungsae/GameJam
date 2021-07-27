@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8544604097085198093}
   - component: {fileID: 2647584962511916230}
   - component: {fileID: 2429471237420900395}
-  - component: {fileID: 2740950449328677266}
   - component: {fileID: 5708429968175323707}
   - component: {fileID: 6221226580104213941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_Recorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,30 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!233 &2740950449328677266
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2748992522195836194}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!61 &5708429968175323707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,4 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   joint: {fileID: 0}
-  part: 
+  part: Body

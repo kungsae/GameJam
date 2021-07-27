@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 471733900468061212}
   - component: {fileID: 6500544397172989658}
   - component: {fileID: 4724023751332511451}
-  m_Layer: 0
+  - component: {fileID: -5631576314071727501}
+  m_Layer: 6
   m_Name: Head_Keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 499184239734718916}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -173,3 +174,19 @@ MonoBehaviour:
   body: {fileID: 0}
   joint: {fileID: 0}
   part: Head
+--- !u!114 &-5631576314071727501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499184239734718916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22502d8eee178b4e9a4a98c11b79c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.05
+  power: 30
+  jupPower: 5625
+  armPower: 10

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2041430473151761929}
   - component: {fileID: 4119835048947900696}
   - component: {fileID: 694614385422138657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_ChickenLeg_Fried
   m_TagString: Untagged
   m_Icon: {fileID: 0}

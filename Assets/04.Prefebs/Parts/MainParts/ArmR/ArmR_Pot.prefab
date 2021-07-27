@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8401842896035629378}
   - component: {fileID: 8429118984863822220}
   - component: {fileID: 1212768214340851906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8712528123470484564}
   - component: {fileID: 3416776867232641761}
   - component: {fileID: 613654482555120496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_Stone_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

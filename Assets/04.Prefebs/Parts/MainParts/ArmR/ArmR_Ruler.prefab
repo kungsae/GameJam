@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3740266253464110763}
   - component: {fileID: 3052389043266068957}
   - component: {fileID: 6049107460378116772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_Ruler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

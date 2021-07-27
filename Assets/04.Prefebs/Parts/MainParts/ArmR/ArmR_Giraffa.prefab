@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8359021705164411234}
   - component: {fileID: 1807395779229574849}
   - component: {fileID: 6978316830842464918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_Giraffa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

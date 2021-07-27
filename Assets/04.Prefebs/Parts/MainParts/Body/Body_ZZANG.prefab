@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5554412637383536670}
   - component: {fileID: 1269602237421143426}
   - component: {fileID: 8867694849310687559}
-  - component: {fileID: 1731296413197283645}
   - component: {fileID: 5002254875806500381}
   - component: {fileID: 6496009143874987590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_ZZANG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,30 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!233 &1731296413197283645
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1477115347735974011}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!61 &5002254875806500381
 BoxCollider2D:
   m_ObjectHideFlags: 0

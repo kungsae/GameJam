@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1731296413197283645}
   - component: {fileID: 5002254875806500381}
   - component: {fileID: 6496009143874987590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_ZZANG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

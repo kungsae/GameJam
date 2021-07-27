@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 265404155270948954}
   - component: {fileID: 8092172113633915234}
   - component: {fileID: 3611813812844664615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_Fan_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

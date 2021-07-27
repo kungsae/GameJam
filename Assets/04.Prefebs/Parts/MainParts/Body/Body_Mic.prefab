@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4403285131637274464}
   - component: {fileID: 2849736155485268830}
   - component: {fileID: 3661704865358940321}
-  - component: {fileID: 7610236733176113162}
   - component: {fileID: 4907747707900695979}
   - component: {fileID: 3951324145086109111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_Mic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,30 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!233 &7610236733176113162
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4021291393860189653}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!61 &4907747707900695979
 BoxCollider2D:
   m_ObjectHideFlags: 0

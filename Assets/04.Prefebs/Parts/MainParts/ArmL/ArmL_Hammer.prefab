@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2274169157667284594}
   - component: {fileID: 8022881304694163261}
   - component: {fileID: 5027797036974434296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmL_Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1731296413197283645}
   - component: {fileID: 5002254875806500381}
   - component: {fileID: 6496009143874987590}
-  m_Layer: 0
+  - component: {fileID: -5027519864748351058}
+  m_Layer: 6
   m_Name: Head_ZZANG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +118,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1477115347735974011}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -173,3 +174,19 @@ MonoBehaviour:
   body: {fileID: 0}
   joint: {fileID: 0}
   part: Head
+--- !u!114 &-5027519864748351058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477115347735974011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22502d8eee178b4e9a4a98c11b79c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0.05
+  power: 30
+  jupPower: 5625
+  armPower: 10

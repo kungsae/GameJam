@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8093303784846175583}
   - component: {fileID: 3244135198832792356}
   - component: {fileID: 606494518781581706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_CD
   m_TagString: Untagged
   m_Icon: {fileID: 0}

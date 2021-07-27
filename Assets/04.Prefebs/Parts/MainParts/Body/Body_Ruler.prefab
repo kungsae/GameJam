@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8627929056868297199}
   - component: {fileID: 5370207549643283701}
   - component: {fileID: 4992947666022871717}
-  - component: {fileID: 3740266253464110763}
   - component: {fileID: 3052389043266068957}
   - component: {fileID: 6049107460378116772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_Ruler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,30 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!233 &3740266253464110763
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2426251274616728558}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!61 &3052389043266068957
 BoxCollider2D:
   m_ObjectHideFlags: 0

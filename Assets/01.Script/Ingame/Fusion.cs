@@ -74,7 +74,7 @@ public class Fusion : MonoBehaviour
     {
         yield return new WaitForSeconds(0.02f);
         joint.anchor = new Vector2(0,-0.3f);
-        joint.connectedAnchor = new Vector2(0, 0.5f);   
+        joint.connectedAnchor = body.transform.position;   
     }
     IEnumerator CalfFollow(string legName)
     {

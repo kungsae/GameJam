@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 40613292982687478}
   - component: {fileID: 1753049413287311675}
   - component: {fileID: 4786337321340911922}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmR_Stone_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,14 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rig;
-    public Rigidbody2D[] leg;
+    Rigidbody2D body;
+    private Rigidbody2D[] leg = new Rigidbody2D[4];
     private HingeJoint2D[] legJoint = new HingeJoint2D[4];
-    public Rigidbody2D[] arm;
+    private Rigidbody2D[] arm = new Rigidbody2D[2];
     public float time = 0.1f;
     public float power;
     public float jupPower;
     public float armPower;
-    public float jointAngle;
     bool isGround = true;
     bool isDead = false;
     Vector3 legPos;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         FindParts();
+        body = GameObject.Find("Body").GetComponent<Rigidbody2D>();
         rig = GetComponent<Rigidbody2D>();
         legPos = new Vector3(0,leg[3].GetComponent<SpriteRenderer>().bounds.size.y);
         
@@ -99,6 +100,7 @@ public class Player : MonoBehaviour
             if (!isDead)
             {
                 rig.MoveRotation(0);
+                body.MoveRotation(0);
                 leg[0].MoveRotation(0);
                 leg[1].MoveRotation(0);
                 leg[2].MoveRotation(0);
