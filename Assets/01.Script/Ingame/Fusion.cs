@@ -65,8 +65,8 @@ public class Fusion : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         //joint.anchor = new Vector2(0, 0.5f);
-        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.75f);
-        joint.connectedAnchor = new Vector2(0, -0.5f);
+        joint.anchor = new Vector2(0,gameObject.GetComponent<SpriteRenderer>().bounds.size.y*0.5f);
+        joint.connectedAnchor = new Vector2(0, -body.gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
     }
     IEnumerator Headfollow()
     {
@@ -79,8 +79,8 @@ public class Fusion : MonoBehaviour
         yield return new WaitForSeconds(0.03f);
         FindLeg(legName);
         joint.connectedBody = body.GetComponent<Rigidbody2D>();
-        joint.anchor = new Vector2(0, 0.5f);
-        joint.connectedAnchor = new Vector2(0, -0.5f);
+        joint.anchor = new Vector2(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
+        joint.connectedAnchor = new Vector2(0, -body.gameObject.GetComponent<SpriteRenderer>().bounds.size.y * 0.5f);
     }
     IEnumerator ArmFollow()
     {
