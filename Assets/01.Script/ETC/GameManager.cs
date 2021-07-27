@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public string sceneName = null;
 
     public bool onEnemy = false;
+    public bool dead = false;
 
     public List<GameObject> bodyPrefabs = new List<GameObject>();
     public List<GameObject> headPrefabs = new List<GameObject>();

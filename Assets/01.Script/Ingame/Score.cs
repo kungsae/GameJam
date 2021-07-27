@@ -9,6 +9,10 @@ public class Score : MonoBehaviour
 	public Text scoreText;
 	public void scoreUpdate()
 	{
+		if (!GameManager.Instance.dead)
+		{
+			score++;
+		}
 		scoreText.text = "Kill : " + score;
 	}
 	

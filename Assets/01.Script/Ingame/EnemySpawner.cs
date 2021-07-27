@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         score = FindObjectOfType<BattleRoyalScore>();
-        StartCoroutine(SpawnEnemy(EnemyCount));
+        StartCoroutine(wait());
     }
 
     // Update is called once per frame
@@ -43,8 +43,14 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(stageDelay);
             if (!GameManager.Instance.onEnemy|| isBattleRoyal)
             {
-                score.score++;
-                score.scoreUpdate();
+                if (isBattleRoyal)
+                {
+                    if (score.score % 10 == 0)
+                    {
+                        enemyCount++;
+                    }
+                    score.scoreUpdate();
+                }
                 for (int j = 0; j < enemyCount; j++)
                 {
                     
@@ -52,6 +58,7 @@ public class EnemySpawner : MonoBehaviour
                     transform.position = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
                     yield return new WaitForSeconds(0.01f);
                     enemyNum++;
+                    GameObject _gameObject = new GameObject("Enemy"+enemyNum);
                     for (int i = 0; i < parts.Length; i++)
                     {
                         Rigidbody2D rig = parts[i].GetComponent<Rigidbody2D>();
@@ -61,8 +68,8 @@ public class EnemySpawner : MonoBehaviour
                     }
                     for (int i = 0; i < parts.Length; i++)
                     {
-                        yield return new WaitForSeconds(0.5f);
-                        GameObject part = Instantiate(parts[i], transform.position, transform.rotation);
+                        yield return new WaitForSeconds(0.25f);
+                        GameObject part = Instantiate(parts[i], transform.position, transform.rotation, _gameObject.transform);
                         part.layer = 8;
                         EnemyFusion fusion = part.AddComponent<EnemyFusion>();
                         switch (i)
@@ -107,14 +114,26 @@ public class EnemySpawner : MonoBehaviour
                         partsList.Add(part);
                     }
                     for (int i = 0; i < partsList.Count; i++)
-                    {
+                    {   
                         partsList[i].GetComponent<Rigidbody2D>().gravityScale = 1;
                         partsList[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                     }
+                    int a = partsList.Count;
+					for (int i = 0; i < a; i++)
+					{
+                        partsList.RemoveAt(0);
+					}
+
+
                     GameManager.Instance.onEnemy = true;
                 }
             }
         }
+    }
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(SpawnEnemy(EnemyCount));
     }
     private void RandomParts()
     {

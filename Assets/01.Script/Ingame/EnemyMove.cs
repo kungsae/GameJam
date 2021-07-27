@@ -132,9 +132,9 @@ public class EnemyMove : MonoBehaviour
         Debug.Log("Dead");
         if (score != null)
         {
-            score.score++;
             score.scoreUpdate();
         }
+        Destroy(gameObject.transform.parent.gameObject, 5f);
     }
 
 }

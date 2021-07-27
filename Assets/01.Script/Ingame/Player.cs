@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
     public void Dead()
     {
         isDead = true;
+        GameManager.Instance.dead = true;
         Debug.Log("Dead");
     }
 

@@ -7,9 +7,14 @@ public class BattleRoyalScore : MonoBehaviour
 {
 	public int score;
 	public Text scoreText;
+	private void Start()
+	{
+		score = 1;
+	}
 	public void scoreUpdate()
 	{
-		scoreText.text = "Wave : " + score+1;
+		score++;
+		scoreText.text = "Wave : " + (score+1);
 	}
 
 }
