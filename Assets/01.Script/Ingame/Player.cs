@@ -88,7 +88,6 @@ public class Player : MonoBehaviour
                 arm[0].AddTorque(-armPower);
                 arm[1].AddTorque(-armPower);
             }
-            Debug.Log("A" + isGround + "," + isGround2);
             if (Input.GetKeyDown(KeyCode.Space) && (isGround|| isGround2))
             {
                 
