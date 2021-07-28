@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public float minY;
     public float maxY;
 
+    private AudioSource spawnerAudio;
 
     public GameObject[] partsBody;
     public GameObject[] partsLegL;
@@ -28,6 +29,12 @@ public class EnemySpawner : MonoBehaviour
 
     BattleRoyalScore score;
     public bool isBattleRoyal;
+
+    void Awake()
+    {
+        spawnerAudio = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +52,19 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (isBattleRoyal)
                 {
+                    spawnerAudio.Play();
+                    
                     if (score.scorePoint % 10 == 0)
                     {
                         enemyCount++;
                     }
                     score.scoreUpdate();
                 }
+                else
+                {
+                    spawnerAudio.Play();
+                }
+
                 for (int j = 0; j < enemyCount; j++)
                 {
                     
