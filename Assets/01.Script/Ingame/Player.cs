@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     bool isGround = true;
     bool isGround2 = true;
     bool isDead = false;
+    public AudioSource audioSource;
+    public AudioClip BGM;
     Vector3 legPos;
     JointAngleLimits2D limit;
 	private void Awake()
