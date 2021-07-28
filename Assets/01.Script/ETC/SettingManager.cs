@@ -9,10 +9,13 @@ public class SettingManager : MonoBehaviour
     public GameObject settingPanel;
     public GameObject[] stageBtns = new GameObject[3];
 
+    private AudioSource audioSource;
+
     bool isSetting = false;
 
     void Awake()
     {
+        audioSource = FindObjectOfType<AudioSource>();
         settingPanel.SetActive(false);
     }
 
@@ -34,29 +37,37 @@ public class SettingManager : MonoBehaviour
         isSetting = !isSetting;
         settingPanel.SetActive(isSetting);
 
-        if(stageBtns[0] != null)
+        if (stageBtns[0] != null)
         {
-            for(int i = 0; i < stageBtns.Length; i++)
+            for (int i = 0; i < stageBtns.Length; i++)
             {
                 stageBtns[i].GetComponent<Button>().interactable = !isSetting;
             }
         }
     }
-    
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Setting();
         }
 
-        if(isSetting)
+        if (isSetting)
         {
             Time.timeScale = 0f;
         }
         else
         {
             Time.timeScale = 1f;
+        }
+
+        if (audioSource != null)
+        {
+            if (GameManager.Instance.dead)
+            {
+                Destroy(audioSource.gameObject);
+            }
         }
     }
 }
