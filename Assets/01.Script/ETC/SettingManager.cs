@@ -33,6 +33,15 @@ public class SettingManager : MonoBehaviour
         isSetting = !isSetting;
         settingPanel.SetActive(isSetting);
 
+        if(isSetting)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+
         if(stageBtns[0] != null)
         {
             for(int i = 0; i < stageBtns.Length; i++)
