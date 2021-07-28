@@ -7,8 +7,10 @@ public class test : MonoBehaviour
     public GameObject body;
     public GameObject[] partTest;
     public List<GameObject> parts = new List<GameObject>();
+    public bool jumpMap = false;
 
-	private void Awake()
+
+    private void Awake()
 	{
         //Instantiate(body);
 
@@ -28,7 +30,18 @@ public class test : MonoBehaviour
         }
 		StartCoroutine(create());
 	}
-    IEnumerator create()
+	private void Update()
+	{
+        if (jumpMap)
+        {
+            if (parts.Count > 7)
+            {
+                if (parts[7] != null)
+                    Camera.main.transform.position = new Vector3(parts[7].transform.position.x, parts[7].transform.position.y, Camera.main.transform.position.z);
+            }
+        }
+    }
+	IEnumerator create()
     {
         for (int i = 0; i < partTest.Length; i++)
         {
