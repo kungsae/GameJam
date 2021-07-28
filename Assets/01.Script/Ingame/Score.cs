@@ -19,7 +19,6 @@ public class Score : MonoBehaviour
         {
             PlayerPrefs.SetInt("Kill", 0);
         }
-        scorePoint = PlayerPrefs.GetInt("Kill", 0);
     }
 
     void Update()

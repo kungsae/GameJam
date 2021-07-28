@@ -19,7 +19,7 @@ public class BattleRoyalScore : MonoBehaviour
         {
             PlayerPrefs.SetInt("Score", 1);
         }
-        scorePoint = PlayerPrefs.GetInt("Score", 0);
+        //scorePoint = PlayerPrefs.GetInt("Score", 0);
     }
 
     void Update()
