@@ -25,6 +25,7 @@ public class SettingManager : MonoBehaviour
     {
         GameManager.Instance.dead = false;
         GameManager.Instance.onEnemy = false;
+        isSetting = false;
         SceneManager.LoadScene("01.Main");
     }
 
@@ -32,15 +33,6 @@ public class SettingManager : MonoBehaviour
     {
         isSetting = !isSetting;
         settingPanel.SetActive(isSetting);
-
-        if(isSetting)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
 
         if(stageBtns[0] != null)
         {
@@ -56,6 +48,15 @@ public class SettingManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Setting();
+        }
+
+        if(isSetting)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 }
