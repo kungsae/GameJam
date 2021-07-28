@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (isBattleRoyal)
                 {
-                    if (score.score % 10 == 0)
+                    if (score.scorePoint % 10 == 0)
                     {
                         enemyCount++;
                     }
